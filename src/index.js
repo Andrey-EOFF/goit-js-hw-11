@@ -1,10 +1,9 @@
 const Mustache = require('mustache');
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import photoCardTemplate from '../src/template/markup-template';
 import PhotoApiService from '../src/template/photo-api-service';
-
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const photoCards = document.querySelector('.gallery');
 const searchForm = document.querySelector('#search-form');
@@ -35,14 +34,15 @@ function appendPhotoHits(data) {
   const renderedCard = Mustache.render(photoCardTemplate, data);
   photoCards.insertAdjacentHTML('beforeend', renderedCard);
 
-  // var lightbox = new SimpleLightbox('.gallery img', {
-  //   caption: true,
-  //   captionType: 'attr',
-  //   captionsData: 'alt',
-  //   captionPosition: 'bottom',
-  //   swipeClose: true,
-  //   animationSpeed: 300,
-  // });
+  const lightbox = new SimpleLightbox('.gallery a', {
+    caption: true,
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    swipeClose: true,
+    animationSpeed: 300,
+  });
+  lightbox.refresh();
 }
 
 function clearPhotoCards() {

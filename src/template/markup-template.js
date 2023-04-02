@@ -1,8 +1,8 @@
 const photoCardTemplate = `
   {{#hits}}
     <div class="photo-card">
-    <a href="{{largeImageURL}}" alt="{{tags}}" loading="lazy">
-      <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" />
+    <a href="{{largeImageURL}}" alt="{{tags}}" loading="lazy" data-lightbox="gallery">
+  <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" />
       <div class="info">
         <p class="info-item">
           <b>Likes</b> {{likes}}
